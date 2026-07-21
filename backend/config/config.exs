@@ -9,7 +9,7 @@ import Config
 
 config :backend,
   ecto_repos: [Backend.Repo],
-  generators: [timestamp_type: :utc_datetime]
+  generators: [timestamp_type: :utc_datetime, binary_id: true]
 
 # Configure the endpoint
 config :backend, BackendWeb.Endpoint,
