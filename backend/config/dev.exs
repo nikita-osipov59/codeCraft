@@ -53,6 +53,10 @@ config :backend, BackendWeb.Endpoint,
 # Enable dev routes for dashboard and mailbox
 config :backend, dev_routes: true
 
+config :backend, :discord_webhook_url, System.get_env("DISCORD_WEBHOOK_URL")
+config :backend, :discord_client_id, System.get_env("DISCORD_CLIENT_ID")
+config :backend, :discord_client_secret, System.get_env("DISCORD_CLIENT_SECRET")
+
 # Do not include metadata nor timestamps in development logs
 config :logger, :default_formatter, format: "[$level] $message\n"
 

@@ -27,6 +27,10 @@ config :logger, :default_formatter,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
+config :backend, :discord_webhook_url, nil
+config :backend, :discord_client_id, nil
+config :backend, :discord_client_secret, nil
+
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
