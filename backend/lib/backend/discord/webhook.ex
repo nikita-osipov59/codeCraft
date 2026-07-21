@@ -1,5 +1,5 @@
 defmodule Backend.Discord.Webhook do
-  @webhook_url Application.compile_env(:backend, :discord_webhook_url)
+  defp webhook_url, do: Application.get_env(:backend, :discord_webhook_url)
 
   def notify_new_board_entry(entry) do
     entry = entry |> Backend.Repo.preload([:author, :topic])
@@ -58,8 +58,8 @@ defmodule Backend.Discord.Webhook do
   end
 
   defp send(payload) do
-    if @webhook_url do
-      Req.post(@webhook_url, json: payload)
+    if url = webhook_url() do
+      Req.post(url, json: payload)
     end
   end
 end
