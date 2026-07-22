@@ -12,18 +12,15 @@ defmodule BackendWeb.AuthController do
     base_url = "#{conn.scheme}://#{conn.host}:#{conn.port}"
     redirect_uri = "#{base_url}/auth/discord/callback"
 
+    frontend_url = Application.get_env(:backend, :frontend_url) || "http://localhost:3000"
+
     case Backend.Discord.OAuth.login_or_register(code, redirect_uri) do
       {:ok, user} ->
         token = Phoenix.Token.sign(conn, "user auth", user.id)
-
-        conn
-        |> put_status(:ok)
-        |> json(%{token: token, user: %{id: user.id, username: user.username, role: user.role, avatar: user.avatar}})
+        redirect(conn, external: "#{frontend_url}/auth/callback?token=#{token}&role=#{user.role}")
 
       {:error, _} ->
-        conn
-        |> put_status(:unauthorized)
-        |> json(%{error: "Authentication failed"})
+        redirect(conn, external: "#{frontend_url}/auth/callback?error=auth_failed")
     end
   end
 end

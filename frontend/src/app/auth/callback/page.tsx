@@ -1,7 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { api } from '@/lib/api'
 
 export default function AuthCallback() {
   const router = useRouter()
@@ -9,25 +8,25 @@ export default function AuthCallback() {
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
-    const code = params.get('code')
+    const token = params.get('token')
+    const err = params.get('error')
+    const role = params.get('role')
 
-    if (!code) {
-      setError('No authorization code received')
+    if (err) {
+      setError('Authentication failed')
       return
     }
 
-    api.auth.callback(code)
-      .then(({ token, user }) => {
-        localStorage.setItem('token', token)
-        if (user.role === 'both') {
-          router.push('/onboarding')
-        } else {
-          router.push('/dashboard')
-        }
-      })
-      .catch(() => {
-        setError('Authentication failed')
-      })
+    if (token) {
+      localStorage.setItem('token', token)
+      if (role === 'both') {
+        router.push('/onboarding')
+      } else {
+        router.push('/dashboard')
+      }
+    } else {
+      setError('No token received')
+    }
   }, [router])
 
   if (error) {
@@ -37,6 +36,6 @@ export default function AuthCallback() {
   }
 
   return <div className="flex items-center justify-center min-h-screen">
-    <p className="text-lg text-gray-500">Авторизация через Discord...</p>
+    <p className="text-lg text-gray-500">Вход выполнен, перенаправление...</p>
   </div>
 }

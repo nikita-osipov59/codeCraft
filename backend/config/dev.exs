@@ -65,6 +65,7 @@ config :backend, BackendWeb.Endpoint,
 # Enable dev routes for dashboard and mailbox
 config :backend, dev_routes: true
 
+config :backend, :frontend_url, System.get_env("FRONTEND_URL") || "http://localhost:3000"
 config :backend, :discord_webhook_url, System.get_env("DISCORD_WEBHOOK_URL")
 config :backend, :discord_client_id, System.get_env("DISCORD_CLIENT_ID")
 config :backend, :discord_client_secret, System.get_env("DISCORD_CLIENT_SECRET")
