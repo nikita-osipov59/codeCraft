@@ -12,7 +12,7 @@ export function BoardCard({ entry, onApply, onDelete }: Props) {
   const isOwn = user?.id === entry.author.id
 
   return (
-    <div className="bg-white p-4 rounded-lg border border-gray-200">
+    <div className="bg-white p-4 rounded-lg border border-gray-300">
       <div className="flex justify-between items-start">
         <div>
           <div className="flex items-center gap-2">
@@ -24,10 +24,10 @@ export function BoardCard({ entry, onApply, onDelete }: Props) {
             {' · '}Тема: <strong>{entry.topic.name}</strong>
           </div>
           {entry.description && (
-            <div className="text-sm text-gray-500 mt-2">{entry.description}</div>
+            <div className="text-sm text-gray-600 mt-2">{entry.description}</div>
           )}
           {entry.time_slot && (
-            <div className="text-sm text-gray-400 mt-1">
+            <div className="text-sm text-gray-600 mt-1">
               {new Date(entry.time_slot).toLocaleString()}
             </div>
           )}

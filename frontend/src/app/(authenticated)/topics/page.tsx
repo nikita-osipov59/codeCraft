@@ -40,11 +40,11 @@ export default function TopicsPage() {
               <Link
                 key={t.id}
                 href={`/topics/${t.id}`}
-                className="bg-white p-4 rounded-lg border border-gray-200 hover:border-indigo-300 transition"
+                className="bg-white p-4 rounded-lg border border-gray-300 hover:border-indigo-300 transition"
               >
                 <div className="font-medium">{t.name}</div>
                 {t.description && (
-                  <div className="text-sm text-gray-500 mt-1">{t.description}</div>
+                  <div className="text-sm text-gray-600 mt-1">{t.description}</div>
                 )}
               </Link>
             ))}

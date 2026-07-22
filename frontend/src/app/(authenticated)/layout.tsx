@@ -16,12 +16,12 @@ export default function AuthenticatedLayout({ children }: { children: React.Reac
 
   if (loading || !user) {
     return <div className="flex items-center justify-center min-h-screen">
-      <p className="text-gray-500">Загрузка...</p>
+      <p className="text-gray-600">Загрузка...</p>
     </div>
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-100">
       <Header />
       <main className="max-w-6xl mx-auto px-4 py-6">{children}</main>
     </div>

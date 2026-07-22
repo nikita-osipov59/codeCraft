@@ -15,7 +15,7 @@ export default function Home() {
 
   if (loading) {
     return <div className="flex items-center justify-center min-h-screen">
-      <p className="text-lg text-gray-500">Загрузка...</p>
+      <p className="text-lg text-gray-600">Загрузка...</p>
     </div>
   }
 

@@ -6,7 +6,7 @@ export function Header() {
   const { user, logout } = useAuth()
 
   return (
-    <header className="border-b border-gray-200 bg-white">
+    <header className="border-b border-gray-300 bg-white">
       <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
         <div className="flex items-center gap-6">
           <Link href="/dashboard" className="font-bold text-lg">

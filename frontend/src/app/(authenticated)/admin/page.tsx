@@ -46,7 +46,7 @@ export default function AdminPage() {
     <div className="space-y-8 max-w-2xl">
       <h1 className="text-2xl font-bold">Админка</h1>
 
-      <div className="bg-white p-6 rounded-lg border border-gray-200 space-y-4">
+      <div className="bg-white p-6 rounded-lg border border-gray-300 space-y-4">
         <h2 className="font-semibold">Темы</h2>
         <div className="flex gap-2">
           <input
@@ -70,10 +70,10 @@ export default function AdminPage() {
         </div>
         <div className="space-y-2">
           {topics.map(t => (
-            <div key={t.id} className="flex items-center justify-between py-2 border-b border-gray-100">
+            <div key={t.id} className="flex items-center justify-between py-2 border-b border-gray-300">
               <div>
                 <span className="font-medium">{t.name}</span>
-                <span className="text-sm text-gray-500 ml-2">{t.category}</span>
+                <span className="text-sm text-gray-600 ml-2">{t.category}</span>
               </div>
               <div className="flex gap-2">
                 <button onClick={() => setSelectedTopic(t.id)} className="text-sm text-indigo-600 hover:text-indigo-800">
@@ -89,7 +89,7 @@ export default function AdminPage() {
       </div>
 
       {selectedTopic && (
-        <div className="bg-white p-6 rounded-lg border border-gray-200 space-y-4">
+        <div className="bg-white p-6 rounded-lg border border-gray-300 space-y-4">
           <h2 className="font-semibold">Вопросы по теме</h2>
           <div className="flex gap-2">
             <input
@@ -113,7 +113,7 @@ export default function AdminPage() {
           </div>
           <div className="space-y-2">
             {questions.map(q => (
-              <div key={q.id} className="flex items-center justify-between py-2 border-b border-gray-100">
+              <div key={q.id} className="flex items-center justify-between py-2 border-b border-gray-300">
                 <div>
                   <span>{q.text}</span>
                   <span className="text-xs bg-gray-100 px-2 py-0.5 rounded ml-2">{q.level}</span>

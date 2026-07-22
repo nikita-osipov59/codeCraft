@@ -26,6 +26,12 @@ defmodule Backend.Sessions do
     |> Repo.update()
   end
 
+  def update_board_entry_status(%BoardEntry{} = entry, status) do
+    entry
+    |> BoardEntry.changeset(%{status: status})
+    |> Repo.update()
+  end
+
   def delete_board_entry(%BoardEntry{} = entry) do
     Repo.delete(entry)
   end

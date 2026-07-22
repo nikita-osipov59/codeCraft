@@ -26,17 +26,17 @@ export default function Dashboard() {
           </Link>
         </div>
         {recentSessions.length === 0 ? (
-          <p className="text-gray-500">У вас пока нет сессий. Найдите напарника на <Link href="/board" className="text-indigo-600">доске</Link>!</p>
+          <p className="text-gray-600">У вас пока нет сессий. Найдите напарника на <Link href="/board" className="text-indigo-600">доске</Link>!</p>
         ) : (
           <div className="space-y-2">
             {recentSessions.map(s => (
-              <Link key={s.id} href={`/sessions/${s.id}`} className="block bg-white p-4 rounded-lg border border-gray-200 hover:border-gray-300 transition">
+              <Link key={s.id} href={`/sessions/${s.id}`} className="block bg-white p-4 rounded-lg border border-gray-300 hover:border-gray-300 transition">
                 <div className="flex justify-between items-center">
                   <div>
                     <span className="font-medium">{s.topic.name}</span>
-                    <span className="text-gray-500 ml-2">— {s.status}</span>
+                    <span className="text-gray-600 ml-2">— {s.status}</span>
                   </div>
-                  <span className="text-sm text-gray-400">{new Date(s.inserted_at).toLocaleDateString()}</span>
+                  <span className="text-sm text-gray-600">{new Date(s.inserted_at).toLocaleDateString()}</span>
                 </div>
               </Link>
             ))}

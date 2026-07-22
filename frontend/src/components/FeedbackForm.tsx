@@ -24,7 +24,7 @@ export function FeedbackForm({ sessionId, onSubmitted }: Props) {
   }
 
   return (
-    <div className="bg-white p-6 rounded-lg border border-gray-200 space-y-4">
+    <div className="bg-white p-6 rounded-lg border border-gray-300 space-y-4">
       <h3 className="font-semibold">Оставить фидбек</h3>
       <div className="flex gap-1">
         {[1, 2, 3, 4, 5].map(n => (
@@ -32,7 +32,7 @@ export function FeedbackForm({ sessionId, onSubmitted }: Props) {
             key={n}
             onClick={() => setRating(n)}
             className={`w-10 h-10 rounded-full text-lg transition ${
-              n <= rating ? 'bg-yellow-400 text-white' : 'bg-gray-100 text-gray-400'
+              n <= rating ? 'bg-yellow-400 text-white' : 'bg-gray-100 text-gray-600'
             }`}
           >
             ★

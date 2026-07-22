@@ -37,11 +37,11 @@ export default function Onboarding() {
             className={`p-4 rounded-lg border-2 text-left transition ${
               selectedRole === value
                 ? 'border-indigo-600 bg-indigo-50'
-                : 'border-gray-200 hover:border-gray-300'
+                : 'border-gray-300 hover:border-gray-300'
             }`}
           >
             <div className="font-semibold">{label}</div>
-            <div className="text-sm text-gray-500">{desc}</div>
+            <div className="text-sm text-gray-600">{desc}</div>
           </button>
         ))}
       </div>

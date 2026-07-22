@@ -17,9 +17,9 @@ export function StatsWidget({ stats }: Props) {
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
       {items.map(({ label, value }) => (
-        <div key={label} className="bg-white p-4 rounded-lg border border-gray-200">
+        <div key={label} className="bg-white p-4 rounded-lg border border-gray-300">
           <div className="text-2xl font-bold">{value}</div>
-          <div className="text-sm text-gray-500">{label}</div>
+          <div className="text-sm text-gray-600">{label}</div>
         </div>
       ))}
     </div>

@@ -36,6 +36,6 @@ export default function AuthCallback() {
   }
 
   return <div className="flex items-center justify-center min-h-screen">
-    <p className="text-lg text-gray-500">Вход выполнен, перенаправление...</p>
+    <p className="text-lg text-gray-600">Вход выполнен, перенаправление...</p>
   </div>
 }

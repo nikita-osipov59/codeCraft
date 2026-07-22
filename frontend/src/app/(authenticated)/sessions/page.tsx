@@ -39,19 +39,19 @@ export default function SessionsPage() {
         ))}
       </div>
       <div className="space-y-2">
-        {filtered.length === 0 && <p className="text-gray-500">Нет сессий</p>}
+        {filtered.length === 0 && <p className="text-gray-600">Нет сессий</p>}
         {filtered.map(s => (
-          <Link key={s.id} href={`/sessions/${s.id}`} className="block bg-white p-4 rounded-lg border border-gray-200 hover:border-gray-300 transition">
+          <Link key={s.id} href={`/sessions/${s.id}`} className="block bg-white p-4 rounded-lg border border-gray-300 hover:border-gray-300 transition">
             <div className="flex items-center justify-between">
               <div>
                 <span className="font-medium">{s.topic.name}</span>
-                <span className="text-gray-500 ml-2">
+                <span className="text-gray-600 ml-2">
                   {s.initiator.username}{s.partner ? ` × ${s.partner.username}` : ''}
                 </span>
               </div>
               <div className="flex items-center gap-2">
                 <span className={`text-xs px-2 py-0.5 rounded ${statusColors[s.status] || ''}`}>{s.status}</span>
-                <span className="text-sm text-gray-400">{new Date(s.inserted_at).toLocaleDateString()}</span>
+                <span className="text-sm text-gray-600">{new Date(s.inserted_at).toLocaleDateString()}</span>
               </div>
             </div>
           </Link>

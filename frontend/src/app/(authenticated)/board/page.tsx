@@ -50,7 +50,7 @@ export default function BoardPage() {
       </div>
 
       {showForm && (
-        <div className="bg-white p-6 rounded-lg border border-gray-200 space-y-4">
+        <div className="bg-white p-6 rounded-lg border border-gray-300 space-y-4">
           <div>
             <label className="block text-sm font-medium mb-1">Тема</label>
             <select
@@ -105,7 +105,7 @@ export default function BoardPage() {
         {entries.map(e => (
           <BoardCard key={e.id} entry={e} onApply={handleApply} onDelete={handleDelete} />
         ))}
-        {entries.length === 0 && <p className="text-gray-500">Объявлений пока нет</p>}
+        {entries.length === 0 && <p className="text-gray-600">Объявлений пока нет</p>}
       </div>
     </div>
   )

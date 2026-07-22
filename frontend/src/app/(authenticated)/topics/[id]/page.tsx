@@ -22,17 +22,17 @@ export default function TopicDetail() {
     }
   }, [id])
 
-  if (!topic) return <p className="text-gray-500">Загрузка...</p>
+  if (!topic) return <p className="text-gray-600">Загрузка...</p>
 
   return (
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-bold">{topic.name}</h1>
-        <p className="text-gray-500">{topic.description}</p>
+        <p className="text-gray-600">{topic.description}</p>
       </div>
       <div className="space-y-2">
         {questions.map(q => (
-          <div key={q.id} className="bg-white p-4 rounded-lg border border-gray-200">
+          <div key={q.id} className="bg-white p-4 rounded-lg border border-gray-300">
             <div className="flex items-start justify-between">
               <div className="text-sm font-medium">{q.text}</div>
               <span className={`text-xs px-2 py-1 rounded ${levelColors[q.level] || ''}`}>{q.level}</span>
