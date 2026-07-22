@@ -4,8 +4,8 @@ defmodule Backend.Discord.OAuth do
   @discord_user_url "https://discord.com/api/users/@me"
 
   def authorize_url(redirect_uri) do
-    client_id = Application.get_env(:backend, :discord_client_id)
-    "#{@discord_authorize_url}?client_id=#{client_id}&redirect_uri=#{URI.encode(redirect_uri)}&response_type=code&scope=identify"
+    client_id = Application.get_env(:backend, :discord_client_id) || System.get_env("DISCORD_CLIENT_ID")
+    "#{@discord_authorize_url}?client_id=#{client_id}&redirect_uri=#{URI.encode_www_form(redirect_uri)}&response_type=code&scope=identify"
   end
 
   def get_token(code, redirect_uri) do
